@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+    <script>
+        let name = prompt("Enter Student Name:");
+        let studentClass = prompt("Enter Class:");
+        let stream = prompt("Enter Stream:");
+
+        alert("Student Name: " + name +
+              "\nClass: " + studentClass +
+              "\nStream: " + stream);
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Details Form</title>
+</head>
+<body>
+    <h2>Personal Details Form</h2>
+
+    <form id="myForm">
+        Name:
+        <input type="text" id="name" required>
+        <br><br>
+
+        Age:
+        <input type="number" id="age" required>
+        <br><br>
+
+        Gender:
+        <select id="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+        <br><br>
+
+        City:
+        <input type="text" id="city" required>
+        <br><br>
+
+        State:
+        <input type="text" id="state" required>
+        <br><br>
+
+        Country:
+        <input type="text" id="country" required>
+        <br><br>
+
+        <button type="button" onclick="showDetails()">
+            Submit
+        </button>
+    </form>
+
+    <h3>Entered Details:</h3>
+    <p id="result"></p>
+
+    <script>
+        function showDetails() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let gender = document.getElementById("gender").value;
+            let city = document.getElementById("city").value;
+            let state = document.getElementById("state").value;
+            let country = document.getElementById("country").value;
+
+            if (!document.getElementById("myForm").reportValidity()) {
+                return;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Name: " + name + "<br>" +
+                "Age: " + age + "<br>" +
+                "Gender: " + gender + "<br>" +
+                "City: " + city + "<br>" +
+                "State: " + state + "<br>" +
+                "Country: " + country;
+        }
+    </script>
+</body>
+</html>
