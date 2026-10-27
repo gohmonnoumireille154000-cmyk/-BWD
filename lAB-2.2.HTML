@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streams and Subjects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        li {
+            margin: 10px;
+            cursor: pointer;
+        }
+        .subjects {
+            display: none;
+        }
+        .details {
+            margin: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Streams and Subjects</h2>
+
+<ol>
+    <li onclick="showStream('science')">Science
+        <ol id="science" class="subjects">
+            <li onclick="showDetails(event, 'Physics')">Physics</li>
+            <li onclick="showDetails(event, 'Chemistry')">Chemistry</li>
+            <li onclick="showDetails(event, 'Biology')">Biology</li>
+        </ol>
+    </li>
+
+    <li onclick="showStream('commerce')">Commerce
+        <ol id="commerce" class="subjects">
+            <li onclick="showDetails(event, 'Accountancy')">Accountancy</li>
+            <li onclick="showDetails(event, 'Economics')">Economics</li>
+            <li onclick="showDetails(event, 'Business Studies')">
+                Business Studies
+            </li>
+        </ol>
+    </li>
+
+    <li onclick="showStream('arts')">Arts
+        <ol id="arts" class="subjects">
+            <li onclick="showDetails(event, 'History')">History</li>
+            <li onclick="showDetails(event, 'Geography')">Geography</li>
+            <li onclick="showDetails(event, 'Political Science')">
+                Political Science
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<div id="details" class="details">
+    Click on a subject to see its details.
+</div>
+
+<script>
+function showStream(id) {
+    event.stopPropagation();
+    const list = document.getElementById(id);
+    list.style.display =
+        list.style.display === "block" ? "none" : "block";
+}
+
+function showDetails(event, subject) {
+    event.stopPropagation();
+
+    const descriptions = {
+        "Physics": "Study of matter, energy, force and motion.",
+        "Chemistry": "Study of substances, their properties and reactions.",
+        "Biology": "Study of living organisms.",
+        "Accountancy": "Recording and managing financial transactions.",
+        "Economics": "Study of production, consumption and resources.",
+        "Business Studies": "Study of business management and operations.",
+        "History": "Study of past events and civilizations.",
+        "Geography": "Study of Earth, places and environments.",
+        "Political Science": "Study of government and political systems."
+    };
+
+    document.getElementById("details").innerHTML =
+        "<h3>" + subject + "</h3>" +
+        "<p>" + descriptions[subject] + "</p>";
+}
+</script>
+
+</body>
+</html>
+.
